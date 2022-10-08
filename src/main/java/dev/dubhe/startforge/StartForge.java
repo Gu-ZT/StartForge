@@ -8,7 +8,9 @@ public class StartForge {
         Runtime run = Runtime.getRuntime();
         String cmd = (String) config.pro.get("cmd");
         try {
-            Process process = run.exec(cmd);
+            ProcessBuilder processBuilder = new ProcessBuilder(cmd.split(" "));
+            Process process = processBuilder.start();
+            new Console(process).start();
             IOUtils.copy(process.getInputStream(), System.out);
             IOUtils.copy(process.getErrorStream(), System.err);
             if (process.waitFor() != 0) {
