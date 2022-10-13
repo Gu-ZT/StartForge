@@ -8,11 +8,12 @@ public class Console extends Thread {
 
     public Console(Process process) {
         this.process = process;
+        this.setDaemon(true);
     }
 
     @Override
     public void run() {
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in).useDelimiter("\\s*\n");
         try (
                 OutputStream outputStream = process.getOutputStream();
                 OutputStreamWriter streamWriter = new OutputStreamWriter(outputStream);
