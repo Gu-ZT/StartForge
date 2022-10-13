@@ -5,7 +5,6 @@ import org.apache.commons.io.IOUtils;
 public class StartForge {
     public static void main(String[] args) {
         Config config = new Config();
-        Runtime run = Runtime.getRuntime();
         String cmd = (String) config.pro.get("cmd");
         try {
             ProcessBuilder processBuilder = new ProcessBuilder(cmd.split(" "));

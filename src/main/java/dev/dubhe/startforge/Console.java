@@ -12,7 +12,7 @@ public class Console extends Thread {
 
     @Override
     public void run() {
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in).useDelimiter("\\s*\n");
         try (
                 OutputStream outputStream = process.getOutputStream();
                 OutputStreamWriter streamWriter = new OutputStreamWriter(outputStream);
